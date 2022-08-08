@@ -8,7 +8,7 @@ import Profile from "../../components/Profile";
 
 function User({ data, repos = [] }: any) {
   const { public_repos }: { public_repos: number } = data;
-  const pagination_length = Math.ceil(public_repos / 6);
+  const pagination_length = Math.ceil(public_repos / 10);
   const router = useRouter();
   const [loading, setLoading] = React.useState(false);
   const { page = 1, user } = router?.query;
@@ -95,7 +95,7 @@ export async function getServerSideProps(context: any) {
   });
   const data = await res.json();
   const repos = await fetch(
-    `https://api.github.com/users/${user}/repos?page=${page}&per_page=6`,
+    `https://api.github.com/users/${user}/repos?page=${page}&per_page=10`,
     {
       headers: {
         Authorization: "token " + process.env.GIT_ACCESS_TOKEN,
