@@ -1,5 +1,6 @@
 import Link from "next/link";
 import React from "react";
+import Image from "next/image";
 
 function Profile({
   name,
@@ -21,7 +22,10 @@ function Profile({
       <div className="user_profile row justify-content-center">
         <div className="profile col-md-4 col-12">
           <div className="profile_image">
-            <img src={avatar} alt="avatar" />
+            <picture>
+              <source srcSet={avatar} type="image/webp" />
+              <img src={avatar} alt="avatar" />
+            </picture>
           </div>
           {github && (
             <Link href={github} passHref={true}>

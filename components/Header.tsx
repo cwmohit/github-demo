@@ -4,7 +4,6 @@ import React from "react";
 function Header() {
   const onSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    console.log(e.target);
     const target = e.target as typeof e.target & {
       search: { value: string };
     };
