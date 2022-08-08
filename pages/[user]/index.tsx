@@ -88,10 +88,19 @@ export default User;
 export async function getServerSideProps(context: any) {
   // Fetch data from external API
   const { user, page = 1 } = context.query;
-  const res = await fetch(`https://api.github.com/users/${user}`);
+  const res = await fetch(`https://api.github.com/users/${user}`, {
+    headers: {
+      Authorization: "token " + process.env.GIT_ACCESS_TOKEN,
+    },
+  });
   const data = await res.json();
   const repos = await fetch(
-    `https://api.github.com/users/${user}/repos?page=${page}&per_page=6`
+    `https://api.github.com/users/${user}/repos?page=${page}&per_page=6`,
+    {
+      headers: {
+        Authorization: "token " + process.env.GIT_ACCESS_TOKEN,
+      },
+    }
   );
   const repos_data = await repos.json();
   if (data?.message === "Not Found") {
@@ -100,7 +109,7 @@ export async function getServerSideProps(context: any) {
     };
   }
 
-  if (data?.message.includes("API rate limit exceeded for")) {
+  if (data?.message?.includes("API rate limit exceeded for")) {
     return {
       props: {
         data: { message: "API rate limit exceeded" },

@@ -19,8 +19,8 @@ function Pagination({
       <ul className="pagination justify-content-center">
         <Link
           href={`${
-            typeof page === "string" && +page > 1
-              ? `${previous[0]}`
+            typeof page === "number" && +page > 1
+              ? `/${previous[0]}`
               : `/${user}`
           }`}
         >
@@ -34,7 +34,10 @@ function Pagination({
           return (
             <Link key={item} href={`/${user}?page=${item + 1}`}>
               <li className="page-item">
-                <a className="page-link" href="#">
+                <a
+                  className={`page-link ${page === item + 1 ? "active" : ""}`}
+                  href="#"
+                >
                   {item + 1}
                 </a>
               </li>
