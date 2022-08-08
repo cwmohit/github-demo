@@ -1,0 +1,50 @@
+header {
+  background-color: #24292e;
+  margin-bottom: 20px;
+}
+
+.header {
+  width: 80%;
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
+  padding: 10px;
+}
+
+.header .logo svg {
+  height: 40px;
+  width: 40px;
+  fill: white;
+}
+
+.header .search {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.header .search input {
+  padding: 10px;
+  border-radius: 6px;
+  border: none;
+  outline: none;
+}
+
+.header .search button {
+  padding: 10px;
+  border-radius: 6px;
+  border: none;
+  outline: none;
+  background-color: #0366d6;
+  color: white;
+  cursor: pointer;
+}
+
+@media (max-width: 620px) {
+  header .header {
+    width: 90%;
+  }
+  header .header div #profile-search input {
+    width: 150px;
+  }
+}

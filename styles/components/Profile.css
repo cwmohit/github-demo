@@ -1,0 +1,28 @@
+.user_profile .profile {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+}
+
+.user_profile .profile .profile_image {
+  max-width: 300px;
+}
+
+.user_profile .profile_image {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  margin: auto;
+}
+
+.profile_info {
+  padding: 34px 2px;
+}
+
+@media screen and (max-width: 768px) {
+  .profile_info {
+    text-align: center;
+  }
+}
