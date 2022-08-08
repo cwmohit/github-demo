@@ -1,9 +1,11 @@
 import type { NextPage } from "next";
-import Image from "next/image";
-import Header from "../components/Header";
 
 const Home: NextPage = () => {
-  return <div className="app"></div>;
+  return (
+    <div className="container text-center">
+      <h1>Search your github username</h1>
+    </div>
+  );
 };
 
 export default Home;
